@@ -1,0 +1,22 @@
+// Constants used by host and/or device. Defining all those values as
+// a constants enables the compiler to reduce register-usage, unroll loops,
+// etc.
+
+const struct
+{
+  int p;
+  dim3 blockDim;
+  dim3 gridDim;
+  float twom24;
+  float twom12;
+} CRAND = {
+  // parameters you might want to change:
+  223,    // int p; set to 223 for good, 389 for best quality.
+  // parameters you should not change:
+  448,                         // blockDim; == (448, 1, 1)
+  30,                          // gridDim;  == (30, 1, 1)
+  // parameters you must not change:
+  0.000000059604644775390625f, // twom24;
+  0.000244140625f,             // twom12;
+};
+
